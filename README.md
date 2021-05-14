@@ -1,4 +1,4 @@
-# lotsizing-models
+# Lot sizing-models
 
 Modelos matemáticos para o problema de dimensionamento de lotes com o pacote JuMP da linguagem Julia.
 
