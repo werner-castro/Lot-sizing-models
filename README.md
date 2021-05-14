@@ -1,5 +1,6 @@
 # lotsizing-models
-Modelos matemáticos para o problema de dimensionamento de lotes
+
+Modelos matemáticos para o problema de dimensionamento de lotes com o pacote JuMP da linguagem Julia.
 
 ## Modelos (single-level)
 
