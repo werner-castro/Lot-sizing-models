@@ -7,4 +7,4 @@ Modelos matemáticos para o problema de dimensionamento de lotes com o pacote Ju
 - LS-U (Modelo não capacitado com item único)
 - LS-C (Modelo capacitado com item único)
 
-## Modelos (Multi-level)
+## Modelos (multi-level)
