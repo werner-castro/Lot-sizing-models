@@ -50,7 +50,7 @@ h = [1,1,1,1,1,1]
 @objective(LSC, Min, sum(p[j] * x[j,t] + q[j] * y[j,t] + h[j] * I[j,t] for j in 1:J, t in 1:T))
 
 # Constraints
-#@constraint(LSC, [j in 1:J, t = 1], Ij0[j] + x[j,t] == d[j,t] + I[j,t]) # balance inventory in period t = 1
+# @constraint(LSC, [j in 1:J, t = 1], Ij0[j] + x[j,t] == d[j,t] + I[j,t]) # balance inventory in period t = 1
 @constraint(LSC, [j = 1:J, t = 2:T], I[j,t-1] + x[j,t] == d[j,t] + I[j,t]) # balance inventory in period t in 2 to T.
 @constraint(LSC, I[1,1] == 0) # estoque inicial é igual à zero.
 # @constraint(LSC, I[1,T] == 0) # estoque final é igual ao estoque inicial.
