@@ -59,5 +59,5 @@ h = [1,1,1,1,1,1]
 # solve model
 optimize!(LSC)
 
-# 
+# status of solution
 report(LSC, x, I)

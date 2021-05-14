@@ -1,12 +1,13 @@
 
 function report(model::Model, x::AbstractArray, I::AbstractArray)
-    if termination_status(LSC) == MOI.OPTIMAL
-        I,J = size(x)
+    if termination_status(model) == MOI.OPTIMAL
+        J,T = size(x)
         objetivo = round.(Int,objective_value(model))
         periodos = "Período " .* string.(1:T)
         produtos = "Produto " .* string.(1:J)
         function tabela()
-            values = [# Adicionando dados do modelo
+            # Adicionando dados do modelo
+            values = [
                 produtos round.(Int,value.(x)) produtos round.(Int,value.(I))
             ]
             relatorio = table(
