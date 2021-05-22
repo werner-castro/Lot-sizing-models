@@ -6,6 +6,6 @@ Modelos matemáticos para o problema de dimensionamento de lotes / planejamento 
 
 - LS-C (Modelo capacitado com item único)
 - LS-U (Modelo não capacitado com item único)
-- CSLP (Modelo capacitado multi-item)
+- CLSP (Modelo capacitado multi-item)
 
 ## Modelos (multi-level)
