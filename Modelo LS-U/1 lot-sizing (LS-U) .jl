@@ -41,7 +41,7 @@ LSU = Model(Cbc.Optimizer)
 include("report.jl")
 
 # Indices
-T = 8 # number of periods
+T = 10 # number of periods
 
 # Parametros
 d = rand(1:100,1,T)                # demand
