@@ -44,7 +44,7 @@ include("utils.jl")
 CLSP = Model(Cbc.Optimizer)
 
 # Indices
-J = 15                         # number of products / número de produtos
+J = 9                         # number of products / número de produtos
 T = 4                          # number of periods / número de períodos
 
 # Parâmetros

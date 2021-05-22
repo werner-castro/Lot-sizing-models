@@ -1,5 +1,5 @@
 
-function outputmodel(d::Matrix{Int64}, modelo::Model, x::Array{VariableRef, 2}, I::Array{VariableRef, 2})
+function outputmodel(d::Matrix{Int64}, modelo::Model, x::Array{VariableRef, 2}, I)
 
     J,T = size(d)
 
