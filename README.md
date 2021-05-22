@@ -1,6 +1,6 @@
 # Lot sizing-models
 
-Modelos matemáticos para o problema de dimensionamento de lotes com o pacote JuMP da linguagem Julia.
+Modelos matemáticos para o problema de dimensionamento de lotes / planejamento da produção.
 
 ## Modelos (single-level)
 
