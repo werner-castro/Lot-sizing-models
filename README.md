@@ -1,6 +1,6 @@
 # Lot sizing-models
 
-Modelos matemáticos para o problema de dimensionamento de lotes.
+Modelos matemáticos para o problema de dimensionamento de lotes planejamento da produção.
 
 ## Modelos (single-level)
 
