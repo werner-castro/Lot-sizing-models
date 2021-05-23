@@ -18,9 +18,9 @@
 # Ijt >= 0, inventory of product j at the end of period t (qty) / estoque do produto j no final no período t.
 # xjt >= 0, total quantity of product j produced in period t (qty) / quantidade total produzida do produto j no período t.
 # yjt ∈ {0,1} setup changeover = 1 if a setup changeover to product j is executed in period t, 0 otherside.
-#
+
 # Objective function / Função objetivo
-#
+
 #         J   T
 # Min z = ∑   ∑ (s(j) * y(j,t) + h(j) * I(j,t) + p(j,t) * x(j,t))
 #        j=1 t=1
