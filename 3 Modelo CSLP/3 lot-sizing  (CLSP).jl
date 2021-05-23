@@ -7,9 +7,10 @@
 # t = 1....T periods
 
 # Data/Parameters
-# pj = capacity comsumption (time) needed to produce one unit of product j / consumo ou custo em unidades de tempo para produção de uma unidade do produto j
+# bj = capacity absorption / temop de processamento do produto j 
+# pj = production costs / custo de produção do item j
 # hj = holding costs per unit of product j for one period/ custo de estocagem do produto j por uma unidade de período de tempo
-# sj = setup costs for product j/custo de setup do produto j
+# sj = setup costs for product j/ custo de setup do produto j
 # djt = Demand of product j in period t (qty)/ demanda do produto j no período t
 # Ct = available capacity in period t (time)/capacidade disponível no período t em unidades de tempo
 
@@ -44,10 +45,11 @@ include("utils.jl")
 CLSP = Model(Cbc.Optimizer)
 
 # Indices
-J = 9                         # number of products / número de produtos
+J = 9                          # number of products / número de produtos
 T = 4                          # number of periods / número de períodos
 
 # Parâmetros
+b = rand(1:4,J,1)               # capacity absorption / tempo de processamento
 d = rand(1:100,J,T)             # Demand/demanda
 p = rand(1:4,J,T)               # Production costs / custos de produção
 h = repeat(rand(10:10,J,1))     # holding costs / custos de estocagem
@@ -57,14 +59,14 @@ C = repeat(rand(1000:1000,1,T)) # available capacity in period t / capacidade de
 # Variáveis
 @variable(CLSP, I[j in 1:J, t in 0:T] >= 0, Int)   # inventory of product / quantidade a ser estocada
 @variable(CLSP, x[j in 1:J, t in 1:T] >= 0, Int)   # total quantity of product j produced in period t / quantidade de produto j a ser produzida no período t
-@variable(CLSP, y[j in 1:J, t in 1:T], Bin)        #  binary setup variables
+@variable(CLSP, y[j in 1:J, t in 1:T], Bin)        # binary setup variables
 
 # Função objetivo = minimiza os custos de estocagem e produção
 @objective(CLSP, Min, sum(s[j] * y[j,t] + h[j] * I[j,t] +  p[j,t] * x[j,t] for j in 1:J, t in 1:T))
 
 # Restrições
 @constraint(CLSP, [j in 1:J, t in 1:T],  I[j,t-1] + x[j,t] - d[j,t] == I[j,t])   
-@constraint(CLSP, [t in 1:T], sum(s[j] * x[j,t] for j = 1:J) ≤ C[t])
+@constraint(CLSP, [t in 1:T], sum(b[j] * x[j,t] for j = 1:J) ≤ C[t])
 @constraint(CLSP, [j in 1:J, t in 1:T], x[j,t] ≤ (sum(d[j,τ] for τ = 1:T)) * y[j,t])             
 
 # Otimizando o modelo
