@@ -7,7 +7,7 @@
 # t = 1....T periods
 
 # Data/Parameters
-# bj = capacity absorption / temop de processamento do produto j 
+# bj = capacity absorption / tempo de processamento do produto j 
 # pj = production costs / custo de produção do item j
 # hj = holding costs per unit of product j for one period/ custo de estocagem do produto j por uma unidade de período de tempo
 # sj = setup costs for product j/ custo de setup do produto j
